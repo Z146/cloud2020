@@ -1,0 +1,32 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center #注册i进Eureka服务器的微服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Z146/com.wuhua.springcloud-config.git
+          search-paths:
+            - com.wuhua.springcloud-config
+          username: Z146
+          password: zhou1550088
+      ###渎取分支
+      label: master
+  rabbitmq:
+    host: 47.100.16.153
+    port: 5672
+    username: guest
+    password: guest
+#服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka3.com:7003/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

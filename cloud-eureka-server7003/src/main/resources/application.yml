@@ -1,0 +1,10 @@
+server:
+  port: 7003
+eureka:
+  instance:
+    hostname: eureka3.com
+  client:
+    register-with-eureka: false   #不像eureka注册自己
+    fetch-registry: false         #不去检索服务
+    service-url:
+      defaultZone: http://eureka3.com:7003/eureka/ # 单机:  写上自己的地址  否则会默认去连接 localhost:8761

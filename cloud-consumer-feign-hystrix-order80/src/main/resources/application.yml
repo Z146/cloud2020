@@ -1,0 +1,13 @@
+server:
+  port: 80
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka3.com:7003/eureka/
+
+# 设置 在 feign 调用中允许 服务降级  进行服务降级方法调用
+feign:
+  hystrix:
+    enabled: true

@@ -1,0 +1,19 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-provider-hystrix-payment
+eureka:
+  client:
+    register-with-eureka: true
+    allow-redirects: false
+    service-url:
+      defaultZone: http://eureka3.com:7003/eureka
+
+#此配置是为了服务监控而配置，与服务容错本身无关，com.wuhua.springcloud 升级后的坑
+# ServletRegistrationBean 因为 springboot 的默认路径不是"/hystrix.stream",
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "hystrix.stream"
